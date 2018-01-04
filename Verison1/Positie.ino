@@ -15,21 +15,23 @@ void readPosition() {
     }
     digitalWrite(row[i], LOW);
   }
- 
+
 }
 
 
-void printPositions(){
-for (int i = 1; i < 6; i++) {// Outputs(rows)
+void printPositions() {
+  for (int i = 1; i < 6; i++) {// Outputs(rows)
+    Serial.print(i);
     for (int j = 1; j < 6; j++) { // Inputs(column)
-      Serial.print(i);
       Serial.print(DataNew[i][j]);
     }
     Serial.println();
   }
- delay(1000);
- Serial.println();
-  
+
+  Serial.println(" 12345");
+  Serial.println();
+  delay(1000);
+
 }
 
 
