@@ -57,7 +57,8 @@ void setup() {
 
 void loop() {
   readPosition();
-  printPositions();
+  PositionToCategory();
+  
 }
 
 

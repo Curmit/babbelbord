@@ -12,6 +12,7 @@ void readPosition() {
     digitalWrite(row[i], HIGH);
     for (int j = 1; j < 6; j++) { // Inputs(column)
       DataNew[i][j] = digitalRead(column[j]);
+      
     }
     digitalWrite(row[i], LOW);
   }
@@ -19,7 +20,7 @@ void readPosition() {
 }
 
 
-void printPositions() {
+void printData() {
   for (int i = 1; i < 6; i++) {// Outputs(rows)
     Serial.print(i);
     for (int j = 1; j < 6; j++) { // Inputs(column)
@@ -50,6 +51,8 @@ void TimeCheck() {
 
 }
 
+
+//Is this still needed 
 void ResetPositions() {
 
 
