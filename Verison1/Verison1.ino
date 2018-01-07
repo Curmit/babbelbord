@@ -21,15 +21,21 @@
 
 // Babbelboard
 // Global variables
-#define DELAY 20
+#define DELAY 1000
 
 
 // Multiple demensional array representing positions on board
 int row[6] = {0, 25, 23, 22, 52, 53};
 int column[6] = {0, 50, 48, 46, 44, 42};
+int count = 0;
+int count2=0;
 int DataOld[6][6] = { 0 }; // Zero is not used,
 int DataNew[6][6] = { 0 };
 int CheckData[6][6] = { 0 }; //Final positions
+int FinalCheck[6][6] = { 0 };
+int Interval;
+String category;
+String oldCategory;
 
 void setup() {
   pinMode(42, INPUT);
@@ -57,8 +63,8 @@ void setup() {
 
 void loop() {
   readPosition();
-  PositionToCategory();
-  
+
+
 }
 
 

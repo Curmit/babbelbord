@@ -16,12 +16,12 @@ void PrintPosition() {
 }
 
 //TODO: Replace DataNew[][]
-void PositionToCategory() {
-
+//TODO: UPDATE STRING OLD CATEGORY AND NEW CATEGORY, Such that i can sent the old category and new category
+void PositionToNewCategory(){
 
   for (int i = 1; i < 6; i++) {// Outputs(rows)
     for (int j = 1; j < 6; j++) { // Inputs(column)
-      if (DataNew[i][j] == HIGH) {
+      if (FinalCheck[i][j] == HIGH) {
         switch (i) {
           case 1:
             switch (j) {
@@ -133,6 +133,7 @@ void PositionToCategory() {
     }
   }
 }
+
 
 void PrintCategory(int x, int y) {
 
