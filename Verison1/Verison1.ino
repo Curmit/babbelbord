@@ -1,12 +1,16 @@
 
+//row1:White-cable: Gaan,familie, liefde, Het is je gelukdsag, tienertijd
+//row2:           :Kindertijd,Hobby,Familie,Liefde,Ga terug naar je vorige kleurvak
+//row3:           :Tienertijd,Kindertijd,Hobby,Familie,Liefde
+//row4:           :Verwijder een verdiende kleurkaart,Tienertijd,Kindertijd,Hobby,Familie
+//row5:           :Liefde,Geef de laast verdiende kaart aan de vorige speler,Tienertijd,Kindertijd,Hobby
 
 
-//row 1:White: start,familie, liefde, Het is je gelukdsag, tienertijd
+
+
+
+//row 1:
 //------/  ----/ ----/ ------/  ---/  -----
-
-
-
-
 //row2  |       |     |       |     |
 //------/  ----/ ----/ ------/  ---/  -----
 //row3  |       |     |       |     |
@@ -24,26 +28,34 @@
 #define DELAY 1000
 
 
-// Multiple demensional array representing positions on board
+// Multiple demensional array representing positions on the babbel board
+
+// pins for inputs and outputs
 int row[6] = {0, 25, 23, 22, 52, 53};
 int column[6] = {0, 50, 48, 46, 44, 42};
-int count = 0;
-int count2=0;
-int DataOld[6][6] = { 0 }; // Zero is not used,
-int DataNew[6][6] = { 0 };
-int CheckData[6][6] = { 0 }; //Final positions
-int FinalCheck[6][6] = { 0 };
-int Interval;
-String category;
-String oldCategory;
+
+//Counters for the buttons and time 
+int count = 0;// counter for how many time has passed
+int count2=0;// counter for the button
+int Interval; // Timer for interval 
+
+//Used for analysing the data, all the arrays start at 1
+int DataNew[6][6] = { 0 };//  Used to save the most updated changes on the board
+int DataOld[6][6] = { 0 }; // Used to save the position if the pawn is placed
+int CheckData[6][6] = { 0 }; // To check former position witht he new position
+int FinalCheck[6][6] = { 0 };// Save the final position and map to category 
+String category;// Category sent to server 
 
 void setup() {
+  //columns for inputs 
   pinMode(42, INPUT);
   pinMode(44, INPUT);
   pinMode(46, INPUT);
   pinMode(48, INPUT);
   pinMode(50, INPUT);
 
+
+// row/ outputs 
   pinMode(52, OUTPUT);
   pinMode(53, OUTPUT);
   pinMode(25, OUTPUT);
@@ -58,10 +70,12 @@ void setup() {
   digitalWrite(22, HIGH);
 
   Serial.begin(9600);
-  //Serial.println("1:\t2:\t3:\t4:\t5:");
+  
 }
 
 void loop() {
+
+  // Read position and sent position
   readPosition();
 
 

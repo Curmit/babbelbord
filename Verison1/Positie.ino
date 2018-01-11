@@ -29,8 +29,6 @@ int CompareFormerPositionWithNewPosition() {
 void IntervalCheck( int locations) {
 
 
-  // Interval moet nog een positie krijgen en gedefinieerd worden
-
   if (count2 == 25)// Because of 25 positions
     //0,1,2
   {
@@ -41,12 +39,13 @@ void IntervalCheck( int locations) {
     }
     if (Interval == DELAY) {
 
-      Serial.println(locations);
+     // Serial.println(locations);//
 
       //If pawns are on the same position
       if (locations == 1) {
-        PositionToNewCategory();
         memcpy(FinalCheck, CheckData, sizeof(CheckData));
+        PositionToNewCategory();
+        
 
       }
 
@@ -121,7 +120,7 @@ void readPosition() {
   }
   count = count + 1;
   if (count = 20000) {// If he checked N times of the board, let him check if the interval is the same
-    count = 0;
+    count = 0;// checks how many times the algorythm is excecuted 
     // Serial.println("Horay, we checked the board");
 
 

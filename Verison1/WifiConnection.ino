@@ -1,23 +1,17 @@
 //Here is the the position to the fitting category and sent to the server
 
+
+void saveCategory(String category) {
+  String cagetory_ = category;
+  Serial.println(category);
+
+}
+
+
+
 //Uses global variable CHECK
 
-void DataToPosition() {
-
-
-
-
-
-}
-
-void PrintPosition() {
-
-
-}
-
-//TODO: Replace DataNew[][]
-//TODO: UPDATE STRING OLD CATEGORY AND NEW CATEGORY, Such that i can sent the old category and new category
-void PositionToNewCategory(){
+void PositionToNewCategory() {
 
   for (int i = 1; i < 6; i++) {// Outputs(rows)
     for (int j = 1; j < 6; j++) { // Inputs(column)
@@ -26,19 +20,19 @@ void PositionToNewCategory(){
           case 1:
             switch (j) {
               case (1):
-                Serial.println("Start");
+                saveCategory("Gaan");
                 break;
               case (2):
-                Serial.println("Familie");
+                saveCategory("Familie");
                 break;
               case (3):
-                Serial.println("Liefde");
+                saveCategory("Liefde");
                 break;
               case (4):
-                Serial.println("Het is je geluksdag er gebeurt niks");
+                saveCategory("Het is je geluksdag er gebeurt niks");
                 break;
               case (5):
-                Serial.println("Tienertijd");
+                saveCategory("Tienertijd");
                 break;
 
             }
@@ -46,19 +40,19 @@ void PositionToNewCategory(){
           case 2:
             switch (j) {
               case (1):
-                Serial.println("Kindertijd");
+                saveCategory("Kindertijd");
                 break;
               case (2):
-                Serial.println("Hobby");
+                saveCategory("Hobby");
                 break;
               case (3):
-                Serial.println("Familie");
+                saveCategory("Familie");
                 break;
               case (4):
-                Serial.println("Liefde");
+                saveCategory("Liefde");
                 break;
               case (5):
-                Serial.println("Ga terug naar je vorige kleurvak");
+                saveCategory("Ga terug naar je vorige kleurvak");
                 break;
 
             }
@@ -69,19 +63,19 @@ void PositionToNewCategory(){
           case 3:
             switch (j) {
               case (1):
-                Serial.println("Tienertijd");
+                saveCategory("Tienertijd");
                 break;
               case (2):
-                Serial.println("Kindertijd");
+                saveCategory("Kindertijd");
                 break;
               case (3):
-                Serial.println("Hobby");
+                saveCategory("Hobby");
                 break;
               case (4):
-                Serial.println("Familie");
+                saveCategory("Familie");
                 break;
               case (5):
-                Serial.println("Liefde");
+                saveCategory("Liefde");
                 break;
 
             }
@@ -90,19 +84,19 @@ void PositionToNewCategory(){
           case 4:
             switch (j) {
               case (1):
-                Serial.println("Verwijder een verdiende kleurkaart ");
+                saveCategory("Verwijder een verdiende kleurkaart");
                 break;
               case (2):
-                Serial.println("Tienertijd");
+                saveCategory("Tienertijd");
                 break;
               case (3):
-                Serial.println("Kindertijd");
+                saveCategory("Kindertijd");
                 break;
               case (4):
-                Serial.println("Hobby");
+                saveCategory("Hobby");
                 break;
               case (5):
-                Serial.println("Familie");
+                saveCategory("Familie");
                 break;
 
             }
@@ -110,19 +104,20 @@ void PositionToNewCategory(){
           case 5:
             switch (j) {
               case (1):
-                Serial.println("Liefde ");
+                saveCategory("Liefde");
                 break;
               case (2):
-                Serial.println("Geef de laast verdiende kaart aan de vorige speler");
+                saveCategory("Geef de laast verdiende kaart aan de vorige speler");
                 break;
               case (3):
-                Serial.println("Tienertijd");
+                saveCategory("Tienertijd");
+
                 break;
               case (4):
-                Serial.println("Kindertijd");
+                saveCategory("Kindertijd");
                 break;
               case (5):
-                Serial.println("Hobby");
+                saveCategory("Hobby");
                 break;
 
             }
@@ -135,10 +130,16 @@ void PositionToNewCategory(){
 }
 
 
+
+
+
 void PrintCategory(int x, int y) {
 
 
 }
+
+
+
 
 void SendDataToServer() {
 
