@@ -25,7 +25,8 @@
 
 // Babbelboard
 // Global variables
-#define DELAY 1000
+#define DELAY 10000
+#define CHECKRIGHT 4000
 
 
 // Multiple demensional array representing positions on the babbel board
@@ -77,7 +78,7 @@ void loop() {
 
   // Read position and sent position
   readPosition();
-
+  //printNewData();
 
 }
 

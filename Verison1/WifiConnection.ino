@@ -1,5 +1,10 @@
 //Here is the the position to the fitting category and sent to the server
 
+//ERROR MESSAGES
+String error1 ="";
+String error2 = "";
+String error3 = "";
+
 
 void saveCategory(String category) {
   String cagetory_ = category;
@@ -20,7 +25,6 @@ void PositionToNewCategory() {
           case 1:
             switch (j) {
               case (1):
-                saveCategory("Gaan");
                 break;
               case (2):
                 saveCategory("Familie");
@@ -117,6 +121,8 @@ void PositionToNewCategory() {
                 saveCategory("Kindertijd");
                 break;
               case (5):
+
+              //EXCEPTION
                 saveCategory("Hobby");
                 break;
 
