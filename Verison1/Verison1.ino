@@ -46,6 +46,7 @@ int DataOld[6][6] = { 0 }; // Used to save the position if the pawn is placed
 int CheckData[6][6] = { 0 }; // To check former position witht he new position
 int FinalCheck[6][6] = { 0 };// Save the final position and map to category 
 String category;// Category sent to server 
+int incomingByte; // a variable to read incoming serial data into
 
 void setup() {
   //columns for inputs 
@@ -78,7 +79,15 @@ void loop() {
 
   // Read position and sent position
   readPosition();
+
+  
   //printNewData();
+  // see if there's incoming serial data:
+// if (Serial.available() > 0) {
+ // read the oldest byte in the serial buffer:
+ //incomingByte = Serial.read();
+ // if it's a capital H (ASCII 72), turn on the LED:
+  
 
 }
 

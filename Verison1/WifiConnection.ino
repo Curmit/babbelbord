@@ -1,16 +1,19 @@
 //Here is the the position to the fitting category and sent to the server
 
 //ERROR MESSAGES
-String error1 ="";
-String error2 = "";
-String error3 = "";
+String error1 ="Both pawns are at gaan";
+String error2 = "Please move the pawn a little around in the square";
+String error3 = "Please remove last placed pawn, and place it back after X seconds";
 
 
 void saveCategory(String category) {
-  String cagetory_ = category;
-  Serial.println(category);
+  String category_ = category;
+  Serial.println(category_);
+  
+  
 
 }
+
 
 
 

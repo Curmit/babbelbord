@@ -97,6 +97,7 @@ void IntervalCheck( int locations) {
         int detectedLocations = checkFinalLocations();
         if (detectedLocations > 1)
         {
+          
 
           Serial.println("Please remove last placed pawn, and place it back after X seconds");
           resetFinalCheck();
@@ -104,13 +105,13 @@ void IntervalCheck( int locations) {
 
         }
 
-        PositionToNewCategory();
-        printNewData();
-        printOldData();
-        printCheckData();
-        printFinalData();
-        Serial.println("-----------");
-        Serial.println();
+        PositionToNewCategory();   
+        //printNewData();
+        //printOldData();
+        //printCheckData();
+        //printFinalData();
+        //Serial.println("-----------");
+        //Serial.println();
 
 
       }
