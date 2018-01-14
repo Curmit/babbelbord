@@ -19,20 +19,6 @@ void draw()
   }
 }
 
-
-
-void getRequest(String message) {
-  String url = "https://babbelbord.herokuapp.com/api/category/1";
-  println(url);
-  println();
-  println(message);
-  println();
-  GetRequest get = new GetRequest(url);
-  get.send();
-  println("Reponse Content: " + get.getContent());
-  println("Reponse Content-Length Header: " + get.getHeader("Content-Length"));
-}
-
 void postRequest(String message) {
   PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
   post.addHeader("Content-Type", "application/json");
