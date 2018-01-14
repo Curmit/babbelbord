@@ -29,15 +29,9 @@ void postRequest(String message) {
     message.equals("Kindertijd") || 
     message.equals("Hobby")){
     post.addJson("{\"name\": \"" + message + "\"}");
-  } else if(
-    message.equals("Het is je geluksdag er gebeurt niks") ||
-    message.equals("Ga terug naar je vorige kleurvak") ||
-    message.equals("Verwijder een verdiende kleurkaart") ||
-    message.equals("Geef de laast verdiende kaart aan de vorige speler")){
-    post.addJson("{\"special\": \"" + message + "\"}");
   } else {
-    post.addJson("{\"error\": \"" + message + "\"}");
-  }
+    post.addJson("{\"special\": \"" + message + "\"}");
+  }  
   
   post.send();
   System.out.println("Response Content:" + post.getContent() + "\n");
