@@ -14,7 +14,7 @@ void draw()
   while (myPort.available() > 0) {
     String inBuffer = myPort.readString();   
     if (inBuffer != null) {
-      postRequest(inBuffer.trim());
+      postRequest(inBuffer);  // I tried to remove the .trim() function, seemed like it was cutting the String! Check!
     }
   }
 }
@@ -23,21 +23,23 @@ void postRequest(String message) {
   PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
   post.addHeader("Content-Type", "application/json");
   
-  if(message != "Familie" || 
-    message != "Liefde" || 
-    message != "Tienertijd" || 
-    message != "Kindertijd" || 
-    message != "Hobby" || 
-    message != "Het is je geluksdag er gebeurt niks" ||
-    message != "Ga terug naar je vorige kleurvak" ||
-    message != "Verwijder een verdiende kleurkaart" ||
-    message != "Geef de laast verdiende kaart aan de vorige speler"){
-    post.addJson("{\"error\": \"" + message + "\"}");
-  } else {
+  if(message.equals("Familie") || 
+    message.equals("Liefde") || 
+    message.equals("Tienertijd") || 
+    message.equals("Kindertijd") || 
+    message.equals("Hobby")){
     post.addJson("{\"name\": \"" + message + "\"}");
+  } else if(
+    message.equals("Het is je geluksdag er gebeurt niks") ||
+    message.equals("Ga terug naar je vorige kleurvak") ||
+    message.equals("Verwijder een verdiende kleurkaart") ||
+    message.equals("Geef de laast verdiende kaart aan de vorige speler")){
+    post.addJson("{\"special\": \"" + message + "\"}");
+  } else {
+    post.addJson("{\"error\": \"" + message + "\"}");
   }
   
   post.send();
-  System.out.println("Reponse Content:" + post.getContent() + "\n");
-  System.out.println("Reponse Content-Length Header: " + post.getHeader("Content-Length"));
+  System.out.println("Response Content:" + post.getContent() + "\n");
+  System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length"));
 }
