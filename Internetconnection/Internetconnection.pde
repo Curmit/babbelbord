@@ -19,24 +19,24 @@ void draw()
   }
 }
 
-
-
-void getRequest(String message) {
-  String url = "https://babbelbord.herokuapp.com/api/category/1";
-  println(url);
-  println();
-  println(message);
-  println();
-  GetRequest get = new GetRequest(url);
-  get.send();
-  println("Reponse Content: " + get.getContent());
-  println("Reponse Content-Length Header: " + get.getHeader("Content-Length"));
-}
-
 void postRequest(String message) {
   PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
   post.addHeader("Content-Type", "application/json");
-  post.addJson("{\"name\": \"" + message + "\"}");
+  
+  if(message != "Familie" || 
+    message != "Liefde" || 
+    message != "Tienertijd" || 
+    message != "Kindertijd" || 
+    message != "Hobby" || 
+    message != "Het is je geluksdag er gebeurt niks" ||
+    message != "Ga terug naar je vorige kleurvak" ||
+    message != "Verwijder een verdiende kleurkaart" ||
+    message != "Geef de laast verdiende kaart aan de vorige speler"){
+    post.addJson("{\"error\": \"" + message + "\"}");
+  } else {
+    post.addJson("{\"name\": \"" + message + "\"}");
+  }
+  
   post.send();
   System.out.println("Reponse Content:" + post.getContent() + "\n");
   System.out.println("Reponse Content-Length Header: " + post.getHeader("Content-Length"));
