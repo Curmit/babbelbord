@@ -1,14 +1,43 @@
 import processing.serial.*; // use serial port libraries
+import processing.net.*; 
+import http.requests.*;
+
+int category;
 Serial myPort; // make a fresh serial port
 void setup()
 {
   println(Serial.list()); // show the available serial ports
   myPort = new Serial(this, Serial.list()[1], 9600); // open port 0 in the list
-  //at 9600 Baud
 }
 void draw()
 {
-  if (myPort.available()>0) { // when there is incoming serial data
-    print((char)myPort.read()); // output data to the text console
+  while (myPort.available() > 0) {
+    String inBuffer = myPort.readString();   
+    if (inBuffer != null) {
+      postRequest(inBuffer.trim());
+    }
   }
+}
+
+
+
+void getRequest(String message) {
+  String url = "https://babbelbord.herokuapp.com/api/category/1";
+  println(url);
+  println();
+  println(message);
+  println();
+  GetRequest get = new GetRequest(url);
+  get.send();
+  println("Reponse Content: " + get.getContent());
+  println("Reponse Content-Length Header: " + get.getHeader("Content-Length"));
+}
+
+void postRequest(String message) {
+  PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
+  post.addHeader("Content-Type", "application/json");
+  post.addJson("{\"name\": \"" + message + "\"}");
+  post.send();
+  System.out.println("Reponse Content:" + post.getContent() + "\n");
+  System.out.println("Reponse Content-Length Header: " + post.getHeader("Content-Length"));
 }

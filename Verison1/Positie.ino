@@ -67,11 +67,12 @@ void IntervalCheck( int locations) {
 
         memcpy(FinalCheck, CheckData, sizeof(CheckData));
         if (FinalCheck [1][1] == HIGH) { // Both pawns are at start
-          Serial.println("Both pawns are at gaan");
+         Serial.println("Both pawns are at gaan");
           //SENT both pawns are at gaan
         }
         else {
-          Serial.println("Please move the pawn a little around in the square");
+          
+        Serial.println("Please move the pawn a little around in the square");
 
         }
 
@@ -99,7 +100,7 @@ void IntervalCheck( int locations) {
         {
           
 
-          Serial.println("Please remove last placed pawn, and place it back after X seconds");
+         Serial.println("Please remove last placed pawn, and place it back after X seconds");
           resetFinalCheck();
           
 

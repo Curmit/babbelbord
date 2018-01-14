@@ -25,7 +25,7 @@
 
 // Babbelboard
 // Global variables
-#define DELAY 10000
+#define DELAY 5000
 #define CHECKRIGHT 4000
 
 
