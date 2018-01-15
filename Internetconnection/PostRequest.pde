@@ -126,6 +126,10 @@ public class PostRequest {
   public String getContent() {
     return this.content;
   }
+  
+  public int getStatusCodeHTTP() {
+    return this.response.getStatusLine().getStatusCode();
+  }
  
   public String getHeader(String name) {
     Header header = response.getFirstHeader(name);
