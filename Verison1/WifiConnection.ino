@@ -50,7 +50,7 @@ void PositionToNewCategory() {
                 saveCategory("Kindertijd");
                 break;
               case (2):
-                saveCategory("Hobby");
+                saveCategory("Hobbies");
                 break;
               case (3):
                 saveCategory("Familie");
@@ -76,7 +76,7 @@ void PositionToNewCategory() {
                 saveCategory("Kindertijd");
                 break;
               case (3):
-                saveCategory("Hobby");
+                saveCategory("Hobbies");
                 break;
               case (4):
                 saveCategory("Familie");
@@ -100,7 +100,7 @@ void PositionToNewCategory() {
                 saveCategory("Kindertijd");
                 break;
               case (4):
-                saveCategory("Hobby");
+                saveCategory("Hobbies");
                 break;
               case (5):
                 saveCategory("Familie");
@@ -126,7 +126,7 @@ void PositionToNewCategory() {
               case (5):
 
               //EXCEPTION
-                saveCategory("Hobby");
+                saveCategory("Hobbies");
                 break;
 
             }

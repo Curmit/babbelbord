@@ -11,10 +11,12 @@ void setup()
 }
 void draw()
 {
+  //postRequest("Both pawns are at gaan");
   while (myPort.available() > 0) {
     String inBuffer = myPort.readString();   
     if (inBuffer != null) {
-      postRequest(inBuffer);  // I tried to remove the .trim() function, seemed like it was cutting the String! Check!
+      String inBuffer2 = inBuffer.trim();
+      postRequest(inBuffer2);  // I tried to remove the .trim() function, seemed like it was cutting the String! Check!
     }
   }
 }
@@ -22,17 +24,19 @@ void draw()
 void postRequest(String message) {
   PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
   post.addHeader("Content-Type", "application/json");
-  
-  if(message.equals("Familie") || 
+
+  if (message.equals("Familie") || 
     message.equals("Liefde") || 
     message.equals("Tienertijd") || 
     message.equals("Kindertijd") || 
-    message.equals("Hobby")){
+    message.equals("Hobby")) {
+    println("I am inside the category!");
     post.addJson("{\"name\": \"" + message + "\"}");
   } else {
+    println("I am inside the special!");
     post.addJson("{\"special\": \"" + message + "\"}");
   }  
-  
+
   post.send();
   System.out.println("Response Content:" + post.getContent() + "\n");
   System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length"));
