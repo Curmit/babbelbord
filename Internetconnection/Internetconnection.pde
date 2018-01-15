@@ -11,10 +11,12 @@ void setup()
 }
 void draw()
 {
+  //postRequest("Both pawns are at gaan");
   while (myPort.available() > 0) {
     String inBuffer = myPort.readString();   
     if (inBuffer != null) {
-      postRequest(inBuffer);  // I tried to remove the .trim() function, seemed like it was cutting the String! Check!
+      String inBuffer2 = inBuffer.trim();
+      postRequest(inBuffer2);  // I tried to remove the .trim() function, seemed like it was cutting the String! Check!
     }
   }
 }
