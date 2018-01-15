@@ -30,14 +30,13 @@ void postRequest(String message) {
     message.equals("Tienertijd") || 
     message.equals("Kindertijd") || 
     message.equals("Hobby")) {
-    println("I am inside the category!");
     post.addJson("{\"name\": \"" + message + "\"}");
   } else {
-    println("I am inside the special!");
     post.addJson("{\"special\": \"" + message + "\"}");
   }  
 
   post.send();
-  System.out.println("Response Content:" + post.getContent() + "\n");
-  System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length"));
+  System.out.println("Response Status Code:" + post.getStatusCodeHTTP());
+  System.out.println("Response Content:" + post.getContent());
+  System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length") + "\n");
 }
