@@ -63,12 +63,16 @@ void IntervalCheck( int locations) {
 
       //If pawns are on the same position
       if (locations == 1) {
+        
 
 
         memcpy(FinalCheck, CheckData, sizeof(CheckData));
-        if (FinalCheck [1][1] == HIGH) { // Both pawns are at start
+        if (FinalCheck [1][1] == HIGH && start <=1) { // Both pawns are at start and not wrongly sensed on an other position.
+       
          Serial.println("Both pawns are at gaan");
-          //SENT both pawns are at gaan
+         start++;
+
+   
         }
         else {
           
@@ -76,9 +80,12 @@ void IntervalCheck( int locations) {
 
         }
 
+        start = 0;
+
       }
 
       if (locations == 2) {
+        
 
         for (int i = 1; i < 6; i++) {
           for (int j = 1; j < 6; j++) {

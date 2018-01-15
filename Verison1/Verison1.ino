@@ -39,6 +39,7 @@ int column[6] = {0, 50, 48, 46, 44, 42};
 int count = 0;// counter for how many time has passed
 int count2=0;// counter for the button
 int Interval; // Timer for interval 
+int start = 0; // Counting when pawn is at start
 
 //Used for analysing the data, all the arrays start at 1
 int DataNew[6][6] = { 0 };//  Used to save the most updated changes on the board
