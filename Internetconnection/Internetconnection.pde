@@ -22,18 +22,19 @@ void draw()
 void postRequest(String message) {
   PostRequest post = new PostRequest("https://babbelbord.herokuapp.com/api/category/");
   post.addHeader("Content-Type", "application/json");
-  
-  if(message.equals("Familie") || 
+
+  if (message.equals("Familie") || 
     message.equals("Liefde") || 
     message.equals("Tienertijd") || 
     message.equals("Kindertijd") || 
-    message.equals("Hobby")){
+    message.equals("Hobby")) {
     post.addJson("{\"name\": \"" + message + "\"}");
   } else {
     post.addJson("{\"special\": \"" + message + "\"}");
   }  
-  
+
   post.send();
-  System.out.println("Response Content:" + post.getContent() + "\n");
-  System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length"));
+  System.out.println("Response Status Code:" + post.getStatusCodeHTTP());
+  System.out.println("Response Content:" + post.getContent());
+  System.out.println("Response Content-Length Header: " + post.getHeader("Content-Length") + "\n");
 }
