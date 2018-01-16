@@ -35,22 +35,25 @@
 int row[6] = {0, 25, 23, 22, 52, 53};
 int column[6] = {0, 50, 48, 46, 44, 42};
 
-//Counters for the buttons and time 
+//Counters for the buttons and time
 int count = 0;// counter for how many time has passed
-int count2=0;// counter for the button
-int Interval; // Timer for interval 
+int count2 = 0; // counter for the button
+int Interval; // Timer for interval
 int start = 0; // Counting when pawn is at start
 
 //Used for analysing the data, all the arrays start at 1
 int DataNew[6][6] = { 0 };//  Used to save the most updated changes on the board
 int DataOld[6][6] = { 0 }; // Used to save the position if the pawn is placed
 int CheckData[6][6] = { 0 }; // To check former position witht he new position
-int FinalCheck[6][6] = { 0 };// Save the final position and map to category 
-String category;// Category sent to server 
-int incomingByte; // a variable to read incoming serial data into
+int FinalCheck[6][6] = { 0 };// Save the final position and map to category
+String category;// Category sent to server
+int statusCode = 0;// a variable to read incoming serial data into
+
+//Categories
+String OldCategory = {};
 
 void setup() {
-  //columns for inputs 
+  //columns for inputs
   pinMode(42, INPUT);
   pinMode(44, INPUT);
   pinMode(46, INPUT);
@@ -58,7 +61,7 @@ void setup() {
   pinMode(50, INPUT);
 
 
-// row/ outputs 
+  // row/ outputs
   pinMode(52, OUTPUT);
   pinMode(53, OUTPUT);
   pinMode(25, OUTPUT);
@@ -73,26 +76,25 @@ void setup() {
   digitalWrite(22, HIGH);
 
   Serial.begin(9600);
-  
+ 
+
 }
+
+
+
+
+//    if (statusCode == 404 ||  statusCode == 400 ) {
+//      Serial.println(OldCategory);
+//
+//    }
+//    else {
+//      Serial.println("Arduino" + statusCode);
+//      // Read position and sent position
+//    }
 
 void loop() {
-
-  // Read position and sent position
   readPosition();
-
-  
-  //printNewData();
-  // see if there's incoming serial data:
-// if (Serial.available() > 0) {
- // read the oldest byte in the serial buffer:
- //incomingByte = Serial.read();
- // if it's a capital H (ASCII 72), turn on the LED:
-  
-
 }
-
-
 
 
 

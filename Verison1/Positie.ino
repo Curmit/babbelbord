@@ -63,20 +63,19 @@ void IntervalCheck( int locations) {
 
       //If pawns are on the same position
       if (locations == 1) {
-        
+
 
 
         memcpy(FinalCheck, CheckData, sizeof(CheckData));
-        if (FinalCheck [1][1] == HIGH && start <=1) { // Both pawns are at start and not wrongly sensed on an other position.
-       
-         Serial.println("Both pawns are at gaan");
-         start++;
+        if (FinalCheck [1][1] == HIGH && start <= 1) { // Both pawns are at start and not wrongly sensed on an other position.
 
-   
+          Serial.println("START");
+
+
         }
         else {
-          
-        Serial.println("Please move the pawn a little around in the square");
+
+          Serial.println("MOVEPAWN");
 
         }
 
@@ -85,7 +84,7 @@ void IntervalCheck( int locations) {
       }
 
       if (locations == 2) {
-        
+
 
         for (int i = 1; i < 6; i++) {
           for (int j = 1; j < 6; j++) {
@@ -105,15 +104,16 @@ void IntervalCheck( int locations) {
         int detectedLocations = checkFinalLocations();
         if (detectedLocations > 1)
         {
-          
 
-         Serial.println("Please remove last placed pawn, and place it back after X seconds");
+
+          Serial.println("MOVEDPAWNTOOFAST");
           resetFinalCheck();
-          
+
 
         }
 
-        PositionToNewCategory();   
+        PositionToNewCategory();
+        // ListenToServer();
         //printNewData();
         //printOldData();
         //printCheckData();
@@ -165,6 +165,7 @@ void TimeCheck() {
   //Serial.println(count2);
 
   IntervalCheck( locations);
+  
 
 }
 
@@ -188,8 +189,13 @@ void readPosition() {
 
 
     TimeCheck();
+    
+    
     resetData();
+    
+   
   }
+
 
 }
 

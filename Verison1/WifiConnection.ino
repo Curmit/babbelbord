@@ -1,7 +1,7 @@
 //Here is the the position to the fitting category and sent to the server
 
 //ERROR MESSAGES
-String error1 ="Both pawns are at gaan";
+String error1 = "Both pawns are at gaan";
 String error2 = "Please move the pawn a little around in the square";
 String error3 = "Please remove last placed pawn, and place it back after X seconds";
 
@@ -9,8 +9,9 @@ String error3 = "Please remove last placed pawn, and place it back after X secon
 void saveCategory(String category) {
   String category_ = category;
   Serial.println(category_);
-  
-  
+  OldCategory = category_;
+
+
 
 }
 
@@ -36,7 +37,7 @@ void PositionToNewCategory() {
                 saveCategory("Liefde");
                 break;
               case (4):
-                saveCategory("Het is je geluksdag er gebeurt niks");
+                saveCategory("Het");
                 break;
               case (5):
                 saveCategory("Tienertijd");
@@ -59,7 +60,7 @@ void PositionToNewCategory() {
                 saveCategory("Liefde");
                 break;
               case (5):
-                saveCategory("Ga terug naar je vorige kleurvak");
+                saveCategory("Ga");
                 break;
 
             }
@@ -91,7 +92,7 @@ void PositionToNewCategory() {
           case 4:
             switch (j) {
               case (1):
-                saveCategory("Verwijder een verdiende kleurkaart");
+                saveCategory("Verwijder");
                 break;
               case (2):
                 saveCategory("Tienertijd");
@@ -114,7 +115,7 @@ void PositionToNewCategory() {
                 saveCategory("Liefde");
                 break;
               case (2):
-                saveCategory("Geef de laast verdiende kaart aan de vorige speler");
+                saveCategory("Geef");
                 break;
               case (3):
                 saveCategory("Tienertijd");
@@ -125,7 +126,7 @@ void PositionToNewCategory() {
                 break;
               case (5):
 
-              //EXCEPTION
+                //EXCEPTION
                 saveCategory("Hobbies");
                 break;
 
@@ -142,18 +143,10 @@ void PositionToNewCategory() {
 
 
 
-void PrintCategory(int x, int y) {
-
-
-}
 
 
 
 
-void SendDataToServer() {
-
-
-}
 
 
 
